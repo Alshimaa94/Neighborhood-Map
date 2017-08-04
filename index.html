@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Neighborhood Map</title>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="js/bootstrap.min.js">
+	</head>
+<body>      
+<div class="container">
+
+  <aside id="sidebar"> 
+  
+        <input id="show-listings" type="button" value="Show Listings">
+        <input id="hide-listings" type="button" value="Hide Listings">  
+		
+        <input id="filter" type="text" data-bind="textInput: filter" placeholder="Search">
+  
+  <!-- make the locations shown up in a list
+    getting up outside of this bind  of content to the viewmodel using $parent to the set_location function.
+	-->
+  <ul data-bind="foreach: visiblePlaces">
+    <li data-bind="text: title, click: $parent.set_location"></li>
+  </ul>
+  </aside>
+
+<main id="map"></main>
+</div>
+    <script src="js/knockout-3.4.2.js"></script>
+    <script src="js/jquery.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/ViewModel.js"></script>
+
+	
+    <!-- loading the map -->
+	<script async defer
+        src=
+        "https://maps.googleapis.com/maps/api/js?key=AIzaSyCLR40Lc1kZjqu1QbTecz8OA_ap06GOfHc&v=3&callback=initMap">
+    </script>
+	
+</body>
+</html>
